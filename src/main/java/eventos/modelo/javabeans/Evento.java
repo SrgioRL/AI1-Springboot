@@ -27,7 +27,7 @@ public class Evento implements Serializable{
 	private int duracion;
 	private String direccion;
 	private String estado;
-	private char destacado;
+	private String destacado;
 	private int aforoMaximo;
 	private int minimoAsistencia;
 	private double precio;
