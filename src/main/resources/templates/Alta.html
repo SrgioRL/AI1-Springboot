@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Nuevo Evento</title>
+</head>
+
+<body>
+
+	<form method="post">
+		<label for="nombre">Nombre</label><input type="text" name="nombre"
+			placeholder="Introduzca el nombre de su evento">
+		<label for="descripcion">Descripción</label><input type="text" name="descripcion"
+			placeholder="Describa brevemente su evento">
+		<label for="fechaInicio">Fecha de inicio</label><input type="date" name="fechaInicio"
+			placeholder="Fecha de inicio">
+		<label for="duracion">Duración</label><input type="text" name="duracion"
+			placeholder="¿Cuanto durará su evento?">
+		<label for="direccion">Dirección</label><input type="text" name="direccion"
+			placeholder="¿En que dirección se celebrará su evento?">
+		<label for="destacado">Destacado</label><input type="text" name="destacado"
+			placeholder="¿Es un evento destacado? S/N">
+		<label for="aforoMaximo">Aforo</label><input type="text" name="aforoMaximo"
+			placeholder="¿Cuál es el aforo máximo de su evento">
+		<label for="minimoAsistencia">Asistencia mínima</label><input type="text" name="minimoAsistencia"
+			placeholder="¿Qué mínimo de asistencia dispone?">
+		<label for="precio">Precio</label><input type="text" name="precio"
+			placeholder="¿Cuánto cuesta la asistencia a su evento?">
+		<label for="tipo"> Tipo de Evento</label>
+		<select name="tipo">
+			<option value="1">Concierto</option>
+			<option value="2">Exposición</option>
+			<option value="3">Visita Guiada</option>
+			<option value="4">Boda</option>
+		</select>
+		<input type="submit" value="Crear evento" </form>
+
+</body>
+
+</html>
