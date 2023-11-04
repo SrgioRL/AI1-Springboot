@@ -25,22 +25,23 @@
 
 	<button>Nuevo Evento</button>
 
-	<table id="tab1">
+	<table id="tab1" border="2" width=75%>
 		<tr>
 			<th>ID</th>
-			<th>Nombre</th>
-			<th>Precio</th>
-			<th>Destacado</th>
-			<th>Estado</th>
+			<th>Nombre</td>
+			<th>Precio</td>
+			<th>Destacado</td>
+			<th>Estado</td>
+		</tr>
+		<tr th:each="evento : ${eventosActivos}">
+			<td th:text="${evento.idEvento}"></td>
+			<td th:text="${evento.nombre}"></td>
+			<td th:text="${evento.precio}"></td>
+			<td th:text="${evento.destacado}"></td>
+			<td th:text="${evento.estado}"></td>
 		</tr>
 
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
+		
 	</table>
 
 	<table id="tab2">
