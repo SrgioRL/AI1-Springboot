@@ -29,15 +29,20 @@ public class EventoController {
 	private TipoDao tdao;
 
 	/**
+	 * VISTA FORMULARIO NUEVO EVENTO
+	 * 
 	 * Muestra la vista de un formulario para generar un nuevo evento. * @return
 	 * nuevo (vista de dicho formulario)
 	 */
+
 	@GetMapping("/nuevo")
 	public String formNuevo() {
 		return "nuevo";
 	}
 
 	/**
+	 * PROCESAR NUEVO EVENTO
+	 * 
 	 * Procesa la creación de un nuevo evento. Recibe un objeto de tipo Evento y: -
 	 * Establece el estado del evento como "Activo". - Asigna el tipo de evento
 	 * según el id. - Inserta el evento en la lista correspondiente.
@@ -45,6 +50,7 @@ public class EventoController {
 	 * @param evento (el objeto Evento que se va a procesar)
 	 * @return redirect:/ , que redirige a Home después de procesar el evento.
 	 */
+
 	@PostMapping("/nuevo")
 	public String procAlta(Evento evento) {
 		evento.setEstado("Activo");
@@ -56,6 +62,8 @@ public class EventoController {
 	}
 
 	/**
+	 * DETALLES EVENTO
+	 * 
 	 * Retorna una vista con los detalles de un evento según la ID que recibe.
 	 * 
 	 * Con el método findById localiza el evento con el mismo iD que recibe, y si el
@@ -67,6 +75,7 @@ public class EventoController {
 	 * @return detalles (vista detallada del evento. Si no encuentra evento redirige
 	 *         a la página principal)
 	 */
+
 	@GetMapping("/detalle/{id}")
 	public String detallesEvento(@PathVariable("id") int idEvento, Model model) {
 		Evento evento = edao.findById(idEvento);
@@ -75,10 +84,11 @@ public class EventoController {
 			return "detalles";
 		} else
 			return "forward:/";
-
 	}
 
 	/**
+	 * VISTA FORMULARIO EDICION EVENTO
+	 * 
 	 * Retorna una vista para editar un evento según la ID que recibe.
 	 * 
 	 * Utiliza el método findById para localizar el evento con el mismo ID que
@@ -90,6 +100,7 @@ public class EventoController {
 	 * @return editar (vista con formulario para editar el evento. Si no se
 	 *         encuentra el evento, redirige a la página principal)
 	 */
+
 	@GetMapping("/editar/{id}")
 	public String editarEvento(@PathVariable("id") int idEvento, Model model) {
 		Evento evento = edao.findById(idEvento);
@@ -98,10 +109,11 @@ public class EventoController {
 			return "editar";
 		} else
 			return "forward:/";
-
 	}
 
 	/**
+	 * PROCESAR EDICION EVENTO
+	 * 
 	 * Procesa la edición de un evento según la ID que recibe.
 	 * 
 	 * Utiliza el método findById para localizar el evento con el mismo ID que
@@ -113,6 +125,7 @@ public class EventoController {
 	 * @return redirect:/ (redirige a la página principal después de editar el
 	 *         evento)
 	 */
+
 	@PostMapping("/editar/{id}")
 	public String procEditarEvento(@ModelAttribute("evento") Evento evento, @PathVariable("id") int idEvento) {
 		Evento evActual = edao.findById(idEvento);
@@ -135,6 +148,8 @@ public class EventoController {
 	}
 
 	/**
+	 * CANCELAR EVENTO
+	 * 
 	 * Cancela un evento según la ID que recibe.
 	 * 
 	 * Utiliza el método findById para localizar el evento con el mismo ID que
@@ -154,10 +169,11 @@ public class EventoController {
 			model.addAttribute("evCancelados", evento);
 		}
 		return "redirect:/";
-
 	}
 
 	/**
+	 * ACTIVAR EVENTO
+	 * 
 	 * Activa un evento cancelado previamente.
 	 * 
 	 * Utiliza el método findById para localizar el evento con el mismo ID que
@@ -180,6 +196,8 @@ public class EventoController {
 	}
 
 	/**
+	 * ELIMINAR EVENTO
+	 * 
 	 * Elimina un evento según la ID que recibe.
 	 * 
 	 * Utiliza el método delete para eliminar el evento con el mismo ID que recibe.
@@ -197,6 +215,8 @@ public class EventoController {
 	}
 
 	/**
+	 * FORMATO FECHAS
+	 * 
 	 * Método para el formateo de fechas
 	 * 
 	 * @param binder.
