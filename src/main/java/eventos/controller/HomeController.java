@@ -18,16 +18,16 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String mostrarHome(Model model) {
-		List<Evento> eventosActivos = new ArrayList<>();
-		
-		for(Evento evento: edao.findAll()) {
-			if(evento.getEstado().equalsIgnoreCase("activo"))
-				eventosActivos.add(evento);
-			else
-				System.out.println(evento);
-				System.out.println("  ");
+		List<Evento> eActivo = new ArrayList<>();
+		List<Evento> eCancelado = new ArrayList<>();
+		for (Evento evento : edao.findAll()) {
+			if (evento.getEstado().equalsIgnoreCase("activo")) {
+				eActivo.add(evento);
+			} else
+				eCancelado.add(evento);
 		}
-		model.addAttribute("eventosActivos", eventosActivos);
+		model.addAttribute("eventosActivos", eActivo);
+		model.addAttribute("evCancelados", eCancelado);
 		return "home";
 	}
 

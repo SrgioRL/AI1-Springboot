@@ -9,7 +9,6 @@
 <body>
 
 	<table>
-
 		<tr>
 			<th>Tipos</th>
 			<th>Eventos</th>
@@ -23,39 +22,70 @@
 
 	<h2>Listado de Eventos Activos</h2>
 
-	<button>Nuevo Evento</button>
+	<button><a th:href="@{/eventos/nuevo}">Nuevo Evento</a></button>
 
-	<table id="tab1" border="2" width=75%>
-		<tr>
-			<th>ID</th>
-			<th>Nombre</td>
-			<th>Precio</td>
-			<th>Destacado</td>
-			<th>Estado</td>
-		</tr>
-		<tr th:each="evento : ${eventosActivos}">
-			<td th:text="${evento.idEvento}"></td>
-			<td th:text="${evento.nombre}"></td>
-			<td th:text="${evento.precio}"></td>
-			<td th:text="${evento.destacado}"></td>
-			<td th:text="${evento.estado}"></td>
-		</tr>
+	<div id="tablas">
+		<table id="tab1" border="2" width=50%>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Precio</th>
+				<th>Destacado</th>
 
-		
-	</table>
+			</tr>
+			<tr th:each="evento : ${eventosActivos}">
+				<td th:text="${evento.idEvento}"></td>
+				<td th:text="${evento.nombre}"></td>
+				<td th:text="${evento.precio}"></td>
+				<td th:text="${evento.destacado}"></td>
 
-	<table id="tab2">
-		<tr>
-			<th colspan="4">Opciones</th>
-		</tr>
-		<tr>
-			<td class="detalles">Ver Detalle</td>
-			<td class="editar">Editar</td>
-			<td class="cancelar">Cancelar</td>
-			<td class="eliminar">Eliminar</td>
-		</tr>
-	</table>
+			</tr>
 
+
+		</table>
+
+		<table id="tab2" border="2">
+			<tr>
+				<th colspan="4">Opciones</th>
+			</tr>
+			<tr>
+			<tr th:each="evento : ${eventosActivos}">
+				<td class="detalles"><a th:href="@{/eventos/detalle/{id}(id=${evento.idEvento})}"> Detalle</a></td>
+				<td class="editar"><a th:href="@{/eventos/editar/{id}(id=${evento.idEvento})}">Editar</a></td>
+				<td class="cancelar"><a th:href="@{/eventos/cancelar/{id}(id=${evento.idEvento})}">Cancelar</a></td>
+				<td class="eliminar"><a th:href="@{/eventos/eliminar/{id}(id=${evento.idEvento})}">Eliminar</a></td>
+			</tr>
+		</table>
+
+	</div>
+
+	<h2>Listado de Eventos Cancelados</h2>
+	<div id="cancelados">
+		<table id="tab1" border="2" width=50%>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Estado</th>
+			</tr>
+
+			<tr th:each="evento : ${evCancelados}">
+				<td th:text="${evento.idEvento}"></td>
+				<td th:text="${evento.nombre}"></td>
+				<td th:text="${evento.estado}"></td>
+			</tr>
+		</table>
+		<table id="tab2" border="2">
+			<tr>
+				<th colspan="4">Opciones</th>
+			</tr>
+			<tr>
+			<tr th:each="evento : ${evCancelados}">
+				<td class="detalles"><a th:href="@{/eventos/detalle/{id}(id=${evento.idEvento})}"> Detalle</a></td>
+				<td class="activar"><a th:href="@{/eventos/activar/{id}(id=${evento.idEvento})}">Activar</a></td>
+				<td class="eliminar"><a th:href="@{/eventos/eliminar/{id}(id=${evento.idEvento})}">Eliminar</a></td>
+			</tr>
+		</table>
+	</div>
 
 
 

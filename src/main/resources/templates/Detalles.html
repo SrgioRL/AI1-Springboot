@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Detalles del Evento</title>
+</head>
+
+<body>
+	<h2>DETALLES DEL EVENTO</h3>
+		<p>ID Evento: <span th:text="${evento.idEvento}"></span></p>
+		<p>Nombre: <span th:text="${evento.nombre}"></span></p>
+		<p>Descripción: <span th:text="${evento.descripcion}"></span></p>
+		<p>Fecha de Inicio: <span th:text="${#dates.format(evento.fechaInicio, 'dd - MM - yyyy')}"></span></p>
+		<p>Duración: <span th:text="${evento.duracion}"></span></p>
+		<p>Dirección: <span th:text="${evento.direccion}"></span></p>
+		<p>Estado: <span th:text="${evento.estado}"></span></p>
+		<p>Destacado: <span th:text="${evento.destacado}"></span></p>
+		<p>Aforo Máximo: <span th:text="${evento.aforoMaximo}"></span></p>
+		<p>Mínimo Asistencia: <span th:text="${evento.minimoAsistencia}"></span></p>
+		<p>Precio: <span th:text="${evento.precio}"></span></p>
+		<p>Tipo de Evento: <span th:text="${evento.tipo.nombre}"></span></p>
+
+		<button><a th:href="@{/}">Volver a la página principal</a></button>
+
+
+
+</body>
+
+</html>
