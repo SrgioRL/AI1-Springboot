@@ -38,7 +38,7 @@ public class HomeController {
 		List<Evento> evActivo = new ArrayList<>();
 		List<Evento> evCancelado = new ArrayList<>();
 		for (Evento evento : edao.findAll()) {
-			if (evento.getEstado().equalsIgnoreCase("activo")) {
+			if (evento.getEstado().equalsIgnoreCase("Activo")) {
 				evActivo.add(evento);
 			} else
 				evCancelado.add(evento);

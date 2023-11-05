@@ -165,7 +165,7 @@ public class EventoController {
 	public String cancelarEvento(@PathVariable("id") int idEvento, Model model) {
 		Evento evento = edao.findById(idEvento);
 		if (evento != null) {
-			evento.setEstado("cancelado");
+			evento.setEstado("Cancelado");
 			model.addAttribute("evCancelados", evento);
 		}
 		return "redirect:/";
